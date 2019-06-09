@@ -9,7 +9,7 @@ stupidly overoptimized replacement for `cat` command
 * Does not take stdin
 * Any argument that's not a file we can read is silently skipped.
 
-When called on a list of valid files, should behave identical to regular cat
+When called on a list of valid files, it should otherwise behave identical to regular `cat`
 
 ## System Requirements
 Any X86_64 Linux system
