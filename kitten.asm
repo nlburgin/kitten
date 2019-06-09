@@ -12,7 +12,7 @@ section	.text
 
 _start:					;tell linker entry point
   mov rax,[rsp]
-  cmp rax,1
+  cmp eax,1
   jle _exit
   add rsp,8
   
