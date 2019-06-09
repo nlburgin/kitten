@@ -6,10 +6,12 @@ stupidly overoptimized replacement for `cat` command
 
 ## Limitations
 
-* Does not take stdin
+* Ignores standard input pipe, only operates on the files listed in the arguments
+* Cannot use stdin in file list either with '`-`' (but still can with `/dev/stdin`)
 * Any argument that's not a file path, or otherwise can't be read without errors, is silently skipped.
 
-When called on a list of valid files, it should otherwise behave identical to regular `cat`
+When called on a list of valid files, it should otherwise behave identical to regular `cat` when called without option flags.
+So `kitten file1 file2 file3...` will still concatenate the files to stdout. However, it doesn't do anything fancy besides that.
 
 ## System Requirements
 Any X86_64 Linux system
