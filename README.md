@@ -4,7 +4,7 @@ Minimal cat implementation in asm
 
 stupidly overoptimized replacement for `cat` command
 
-##Limitations
+## Limitations
 
 * Does not take stdin
 * Any argument that's not a file we can read is silently skipped.
