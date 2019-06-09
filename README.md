@@ -7,7 +7,7 @@ stupidly overoptimized replacement for `cat` command
 ## Limitations
 
 * Does not take stdin
-* Any argument that's not a file we can read is silently skipped.
+* Any argument that's not a file path, or otherwise can't be read without errors, is silently skipped.
 
 When called on a list of valid files, it should otherwise behave identical to regular `cat`
 
