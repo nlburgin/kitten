@@ -1,11 +1,10 @@
 # kitten
-Minimal cat implementation in asm
-
 
 stupidly overoptimized replacement for `cat` command
 
 ## Limitations
 
+* Pretty sure this isn't even close to POSIX compliant
 * Ignores standard input pipe, only operates on the files listed in the arguments
 * Cannot use stdin in file list either with '`-`' (but still can with `/dev/stdin`)
 * Any argument that's not a file path, or otherwise can't be read without errors, is silently skipped.
