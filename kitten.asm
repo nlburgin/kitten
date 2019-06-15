@@ -3,8 +3,6 @@
 ;Any argument that's not a file we can read is silently skipped.
 ;When called on a list of valid files, should behave identical to regular cat
 
-%use smartalign
-
 bits 64
 
 section	.text
@@ -15,20 +13,22 @@ _start:					;tell linker entry point
   cmp eax,1
   jle _exit
   add rsp,8
+  jmp _mainloop
   
   align 32
 _mainloop:
   add rsp,8
   mov rdi,[rsp]
-  cmp rdi,0
+  test rdi,rdi
   je _exit
   
   ;open
   mov rax,2
   ;pathname already in rdi
-  xor esi,esi ;no special flags
+  xor rsi,rsi ;no special flags
   syscall
-  mov ebx,eax ;store in nonvolatile register
+  mov rbx,rax ;store in nonvolatile register
+  mov r9,0x00aaaaaa00; basically a long nop since we don't use this register
   
   align 32
 _readloop:
@@ -51,7 +51,7 @@ _readloop:
   
   jmp  _readloop
   
-align 16
+align 32
 _exit:
 	xor di,di
 	mov	rax,60
